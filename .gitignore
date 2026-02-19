@@ -1,0 +1,12 @@
+# CMake / build intermediates
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# macOS
+.DS_Store
+
+# Keep distributable plugin bundles in repo
+!plugins/
