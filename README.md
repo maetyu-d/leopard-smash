@@ -1,6 +1,6 @@
 # Leopard Smash!
 
-Dedicated to my cat, Leonard, and his preferred approach to showing disdain, Leopard Smash! is a "chaotic" compressor that treats compression as nonlinear, unstable dynamics sculpting/rhythmic destruction. There's an optional unsubtle noise gate too, because you'll probably need it.
+Dedicated to my cat, Leonard, and his preferred approach to showing disdain, Leopard Smash! is a "chaotic" compressor that treats compression as nonlinear, unstable dynamics sculpting/rhythmic destruction. An optional (unsubtle) noise gate is provided, because you'll probably need it.
 
 ## Implemented concept blocks
 
