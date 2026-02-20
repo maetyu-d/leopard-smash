@@ -1,7 +1,6 @@
 # Leopard Smash!
 
-Leopard Smash! is a JUCE AU/VST3 "chaotic compressor" that treats compression as nonlinear, unstable dynamics sculpting.
-One-line: a chaotic drum compressor that turns dynamics into rhythmic destruction.
+Dedicated to my cat, Leonard, and his preferred approach to showing disdain, Leopard Smash! is a "chaotic" compressor that treats compression as nonlinear, unstable dynamics sculpting/rhythmic destruction. There's an optional unsubtle noise gate too, because you'll probably need it.
 
 ## Implemented concept blocks
 
