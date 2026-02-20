@@ -4,14 +4,18 @@
 
 Dedicated to my cat, Leonard, and named after his preferred way of showing disdain when his dinner is late, Leopard Smash! is a "chaotic" compressor that reimagines compression as nonlinear, unstable dynamics sculpting with multiple shades of rhythmic destruction. An optional (unsubtle) noise gate is provided, because you'll probably need it.
 
-## Implemented concept blocks
+## Detailed Description
+
+Leopard Smash! is a "chaotic" dynamics processor that combines compression, nonlinear saturation, spectral corruption, temporal warping, and controlled feedback instability into one aggressive effect. Intended primarily for drums, it is designed to preserve groove while turning each hit into something unique and volatile. It uses a multi-domain detector and mutation engine to react differently to transients, sustain, stereo information, and silence, then drives wavefolding, alias/collapse behaviour, FFT-based spectral collapse, and optional extreme output gating for hard rhythmic chopping. It has different modes (Fracture, Implode, Shrapnel, Riot Bus, and Sentient) plus a extensive controls, and spans destructive glue to totally-broken machine behaviours without collapsing into sustained drone.
+
+## Features
 
 - Multi-domain detector (RMS, peak, transient derivative, spectral flux, crest factor, stereo phase correlation)
-- Control mutation engine (quantization, noise injection, logistic-map chaos, hysteresis memory)
+- Control mutation engine (quantisation, noise injection, logistic-map chaos, hysteresis memory)
 - Nonlinear dynamics core (envelope-driven wavefolding, asymmetry, bias shift, sample-rate collapse style hold/aliasing)
-- Temporal distortion (micro-delay warp + micro-repeat taps)
-- Spectral collapse approximation (high-band quantization + harmonic coercion)
-- True per-band FFT spectral collapse (1024-point frame processing with per-band quantization, phase rotation, and harmonic coercion)
+- Temporal distortion (delay warp + repeat taps)
+- Spectral collapse approximation (high-band quantisation + harmonic coercion)
+- True per-band FFT spectral collapse (1024-point frame processing with per-band quantisation, phase rotation, and harmonic coercion)
 - Spectral Collapse Mix (latency-aligned dry/wet blend for FFT path)
 - Nonlinear feedback corruption loop with containment
 - Five modes: `Fracture`, `Implode`, `Shrapnel`, `Riot Bus`, `Sentient`
@@ -19,7 +23,7 @@ Dedicated to my cat, Leonard, and named after his preferred way of showing disda
 - Oversampling quality modes: `Off`, `2x`, `4x`
 - Selectable collapse behavior: `Hold`, `Rate Drop`, `Hybrid`
 - Host latency reporting/compensation for FFT frame path (latency scales with oversampling mode)
-- 12 factory presets with extreme voicing spread (clean control through near-self-destruct)
+- 12 factory presets with extreme voicing spread (clean control through near-self-destruction)
 - Optional extreme noise gate (`Noise Gate`, `Gate Threshold`, `Gate Release`)
 
 ## Parameters
