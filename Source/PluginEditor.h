@@ -3,7 +3,8 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
-class LeopardSmashAudioProcessorEditor final : public juce::AudioProcessorEditor
+class LeopardSmashAudioProcessorEditor final : public juce::AudioProcessorEditor,
+                                               private juce::Timer
 {
 public:
     explicit LeopardSmashAudioProcessorEditor(LeopardSmashAudioProcessor&);
@@ -13,6 +14,8 @@ public:
     void resized() override;
 
 private:
+    void timerCallback() override;
+
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     using ComboAttachment = juce::AudioProcessorValueTreeState::ComboBoxAttachment;
     using ButtonAttachment = juce::AudioProcessorValueTreeState::ButtonAttachment;
@@ -29,6 +32,7 @@ private:
     LeopardSmashAudioProcessor& audioProcessor;
 
     juce::Label title;
+    juce::ComboBox presetBox;
     juce::ComboBox modeBox;
     juce::ComboBox oversampleBox;
     juce::ComboBox collapseBox;

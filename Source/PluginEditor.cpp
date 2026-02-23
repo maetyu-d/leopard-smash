@@ -11,6 +11,21 @@ LeopardSmashAudioProcessorEditor::LeopardSmashAudioProcessorEditor(LeopardSmashA
     title.setColour(juce::Label::textColourId, juce::Colour(0xff111111));
     addAndMakeVisible(title);
 
+    addAndMakeVisible(presetBox);
+    for (int i = 0; i < audioProcessor.getNumPrograms(); ++i)
+        presetBox.addItem(audioProcessor.getProgramName(i), i + 1);
+    presetBox.setSelectedId(audioProcessor.getCurrentProgram() + 1, juce::dontSendNotification);
+    presetBox.setColour(juce::ComboBox::backgroundColourId, juce::Colour(0xffb8b8b2));
+    presetBox.setColour(juce::ComboBox::textColourId, juce::Colour(0xff101010));
+    presetBox.setColour(juce::ComboBox::outlineColourId, juce::Colour(0xff101010));
+    presetBox.setColour(juce::ComboBox::arrowColourId, juce::Colour(0xff101010));
+    presetBox.onChange = [this]
+    {
+        const int idx = presetBox.getSelectedId() - 1;
+        if (idx >= 0 && idx != audioProcessor.getCurrentProgram())
+            audioProcessor.setCurrentProgram(idx);
+    };
+
     addAndMakeVisible(modeBox);
     modeBox.addItemList({ "Fracture", "Implode", "Shrapnel", "Riot Bus", "Sentient" }, 1);
     modeBox.setColour(juce::ComboBox::backgroundColourId, juce::Colour(0xffb8b8b2));
@@ -74,9 +89,19 @@ LeopardSmashAudioProcessorEditor::LeopardSmashAudioProcessorEditor(LeopardSmashA
     setupKnob(oscBias, "oscBias", "Osc Bias");
     setupKnob(gateThresh, "gateThresh", "Gate Thresh");
     setupKnob(gateRelease, "gateRelease", "Gate Release");
+
+    startTimerHz(15);
 }
 
 LeopardSmashAudioProcessorEditor::~LeopardSmashAudioProcessorEditor() = default;
+
+void LeopardSmashAudioProcessorEditor::timerCallback()
+{
+    const int hostProgram = audioProcessor.getCurrentProgram();
+    const int uiProgram = presetBox.getSelectedId() - 1;
+    if (hostProgram >= 0 && hostProgram != uiProgram)
+        presetBox.setSelectedId(hostProgram + 1, juce::dontSendNotification);
+}
 
 void LeopardSmashAudioProcessorEditor::setupKnob(Knob& knob, const juce::String& paramId, const juce::String& labelText)
 {
@@ -143,9 +168,10 @@ void LeopardSmashAudioProcessorEditor::paint(juce::Graphics& g)
 
     g.setColour(juce::Colour(0xff1b1b1b));
     g.setFont(juce::FontOptions("Menlo", 12.0f, juce::Font::bold));
-    g.drawText("MODE", 24, 67, 70, 16, juce::Justification::left);
-    g.drawText("QUALITY", 210, 67, 84, 16, juce::Justification::left);
-    g.drawText("COLLAPSE", 372, 67, 90, 16, juce::Justification::left);
+    g.drawText("PRESET", 24, 67, 70, 16, juce::Justification::left);
+    g.drawText("MODE", 290, 67, 70, 16, juce::Justification::left);
+    g.drawText("QUALITY", 448, 67, 84, 16, juce::Justification::left);
+    g.drawText("COLLAPSE", 606, 67, 90, 16, juce::Justification::left);
 
     g.setColour(juce::Colour(0xff1b1b1b));
     auto drawVerticalLabel = [&](const juce::String& text, float cx, float cy)
@@ -167,9 +193,10 @@ void LeopardSmashAudioProcessorEditor::resized()
 {
     title.setBounds(22, 19, getWidth() - 44, 38);
 
-    modeBox.setBounds(64, 68, 132, 24);
-    oversampleBox.setBounds(260, 68, 100, 24);
-    collapseBox.setBounds(430, 68, 122, 24);
+    presetBox.setBounds(82, 68, 190, 24);
+    modeBox.setBounds(330, 68, 110, 24);
+    oversampleBox.setBounds(504, 68, 96, 24);
+    collapseBox.setBounds(664, 68, 110, 24);
 
     gateButton.setBounds(getWidth() - 396, 68, 120, 24);
     freezeEnvButton.setBounds(getWidth() - 270, 68, 120, 24);
