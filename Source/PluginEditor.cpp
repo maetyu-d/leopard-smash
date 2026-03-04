@@ -87,7 +87,7 @@ LeopardSmashAudioProcessorEditor::LeopardSmashAudioProcessorEditor(LeopardSmashA
     setupKnob(seed, "seed", "Seed Stability");
     setupKnob(contain, "contain", "Containment");
     setupKnob(oscBias, "oscBias", "Osc Bias");
-    setupKnob(gateThresh, "gateThresh", "Gate Thresh");
+    setupKnob(gateThresh, "gateThresh", "Gate Threshold");
     setupKnob(gateRelease, "gateRelease", "Gate Release");
 
     startTimerHz(15);

@@ -6,7 +6,7 @@ Dedicated to my cat, Leonard, and named after his preferred way of showing disda
 
 ## Detailed Description
 
-Leopard Smash! is a "chaotic" dynamics processor that combines compression, nonlinear saturation, spectral corruption, temporal warping, and controlled feedback instability into one aggressive effect. Intended primarily for drums, it is designed to preserve groove while turning each hit into something unique and volatile. It uses a multi-domain detector and mutation engine to react differently to transients, sustain, stereo information, and silence, then drives wavefolding, alias/collapse behaviour, FFT-based spectral collapse, and optional extreme output gating for hard rhythmic chopping. It has different modes (Fracture, Implode, Shrapnel, Riot Bus, and Sentient) plus a extensive controls, and spans destructive glue to totally-broken machine behaviours without collapsing into sustained drone.
+Leopard Smash! is a "chaotic" dynamics processor that combines compression, nonlinear saturation, spectral corruption, temporal warping, and controlled feedback instability into one aggressive effect. Intended primarily for drums, it is designed to preserve groove while turning each hit into something unique and volatile. It uses a multi-domain detector and mutation engine to react differently to transients, sustain, stereo information, and silence, then drives wavefolding, alias/collapse behaviour, FFT-based spectral collapse, and optional extreme output gating for hard rhythmic chopping. It has different modes (Fracture, Implode, Shrapnel, Riot Bus, and Sentient) plus an extensive control set, and spans destructive glue to totally broken-machine behaviours without collapsing into sustained drone.
 
 ## Features
 
@@ -19,6 +19,7 @@ Leopard Smash! is a "chaotic" dynamics processor that combines compression, nonl
 - Spectral Collapse Mix (latency-aligned dry/wet blend for FFT path)
 - Nonlinear feedback corruption loop with containment
 - Five modes: `Fracture`, `Implode`, `Shrapnel`, `Riot Bus`, `Sentient`
+- Integrated preset picker in the plugin UI (mirrors host program selection)
 - Envelope switches: `Freeze Envelope`, `Reverse Release`
 - Oversampling quality modes: `Off`, `2x`, `4x`
 - Selectable collapse behavior: `Hold`, `Rate Drop`, `Hybrid`
@@ -34,6 +35,9 @@ Core:
 - Mix
 - Attack (`-5 ms` pseudo pre-trigger to `200 ms`)
 - Release (`1 ms` to `5 s`)
+- Noise Gate (on/off)
+- Gate Threshold
+- Gate Release
 
 Radical/Mutation:
 - Chaos
